@@ -1,16 +1,22 @@
 import React from 'react';
 import axios from 'axios';
-import logo from './logo.svg';
 import './App.css';
 import PlayerList from './Components/PlayerList';
-import useLocalStorage from './hooks/useLocalStorage';
-import useDarkMode from './hooks/UseDarkMode';
 
 class App extends React.Component {
-
-  state = {
-    players: []
+  constructor(){
+    super();
+    this.state = {
+    players: [],
+    search:""
+  };
   }
+
+  handleChanges = e => {
+    this.setState({ search: e.target.value });
+    console.log(this.state.search);
+  };
+
 
 componentDidMount(){
   axios.get('http://localhost:5000/api/players')

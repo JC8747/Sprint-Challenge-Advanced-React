@@ -1,22 +1,24 @@
 import React from 'react';
-// import styled from "styled-components";
+import styled from "styled-components";
 
-// const PlayerStyle = styled.div`
-//   background-color: #8f95a3;
-//   margin: 3% 10% 3% 10%;
-//   padding: 2% 0 2% 0;
-//   p {
-//     color: #f2f5e3;
-//   }
-// `;
+const CardStyle = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-left: 10%;
+  background-color: #550A46;
+  p {
+    color: #f2f5e3;
+  }
+`;
 
 const PlayerCard = props => {
     return(
-        <div>
+        <CardStyle>
             <h2>{props.player.name}</h2>
             <p>Country: {props.player.contry}</p>
             <p>Searches: {props.player.searches}</p>
-        </div>
+        </CardStyle>
     )
 }
 export default PlayerCard;
