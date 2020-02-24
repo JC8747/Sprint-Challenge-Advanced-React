@@ -8,14 +8,14 @@ class App extends React.Component {
     super();
     this.state = {
     players: [],
-    search:""
+    // search:""
   };
   }
 
-  handleChanges = e => {
-    this.setState({ search: e.target.value });
-    console.log(this.state.search);
-  };
+  // handleChanges = e => {
+  //   this.setState({ search: e.target.value });
+  //   console.log(this.state.search);
+  // };
 
 
 componentDidMount(){
@@ -29,6 +29,7 @@ componentDidMount(){
 render(){
   return (
     <div className="App">
+      <h1>World Cup Players Search Frequency</h1>
      <PlayerList players={this.state.players}/>
     </div>
   )};
