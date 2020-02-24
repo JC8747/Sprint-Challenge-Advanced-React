@@ -1,26 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
+import axios from 'axios';
 import './App.css';
+import PlayerList from './Components/PlayerList';
 
-function App() {
+class App extends React.Component {
+  constructor(){
+    super();
+    this.state = {
+    players: [],
+    // search:""
+  };
+  }
+
+  // handleChanges = e => {
+  //   this.setState({ search: e.target.value });
+  //   console.log(this.state.search);
+  // };
+
+
+componentDidMount(){
+  axios.get('http://localhost:5000/api/players')
+    .then(response => {
+      console.log(response)
+      this.setState({players: response.data})
+    })
+}
+
+render(){
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>World Cup Players Search Frequency</h1>
+     <PlayerList players={this.state.players}/>
     </div>
-  );
+  )};
 }
 
 export default App;
